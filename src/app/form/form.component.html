@@ -1,0 +1,17 @@
+<div class="form">
+  <div class="input-wrapper">
+    <label for="password" class="input-label" [ngClass]="{visible: !!passwordValue}">Password</label>
+    <input id="password" class="input" type="password" placeholder="Password" (input)="inputHandler($event)"
+           [type]="passwordVisible ? 'text' : 'password'"
+    />
+    <button class="show-button" (click)="toggleVisibility()">
+      <img class="show-button-image" src="{{passwordVisible ? 'assets/icons/hide.png' : 'assets/icons/view.png'}}" alt="visibility">
+    </button>
+  </div>
+  <div class="input-state" [ngClass]="passwordStateClass">
+    <div class="input-state-indicator"></div>
+    <div class="input-state-indicator"></div>
+    <div class="input-state-indicator"></div>
+  </div>
+  <p *ngIf="!!message" class="message">{{message}}</p>
+</div>

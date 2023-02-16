@@ -1,0 +1,105 @@
+.form {
+  padding: 30px 20px;
+  box-shadow: 4px 4px 11px 0 rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 6px;
+  min-width: 400px;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  border: 1px solid gray;
+  position: relative;
+  margin: 10px 0;
+  line-height: 6ex;
+  border-radius: 4px;
+  width: 100%;
+  padding: 0 36px 0 10px;
+  box-sizing: border-box;
+
+  &-label {
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+    left: 6px;
+    padding: 0 5px;
+    height: 20px;
+    top: calc(50% - 10px);
+    background: white;
+
+    &.visible {
+      opacity: 1;
+      top: 0;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+}
+
+.show-button {
+  padding: 0;
+  background: transparent;
+  border: none;
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  top: calc(50% - 13px);
+  right: 5px;
+
+  &-image {
+    width: 100%;
+  }
+}
+
+.input-state {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+  min-width: 100%;
+
+  &-indicator {
+    border-radius: 30px;
+    width: calc((100% / 3) - 4px);
+    height: 10px;
+    background: lightgray;
+    border: 1px solid lightgray;
+  }
+
+  &.incorrect {
+    .input-state-indicator {
+      background: red;
+    }
+  }
+
+  &.easy {
+    .input-state-indicator:nth-child(1) {
+      background: red;
+    }
+  }
+
+  &.middle {
+    .input-state-indicator:not(:nth-child(3)) {
+      background: orange;
+    }
+  }
+
+
+  &.strong {
+    .input-state-indicator {
+      background: #62d762;
+    }
+  }
+}
+
+.message {
+  margin-bottom: 0;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+}
+
